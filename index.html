@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Xinyi Huang | 黄欣怡</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --muted: #666;
+    --faint: #999;
+    --accent: #c0392b;
+    --accent2: #2c3e7a;
+    --bg: #faf9f7;
+    --card: #ffffff;
+    --rule: #e0ddd8;
+    --tag-bg: #f0eeea;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* ── HEADER ── */
+  header {
+    border-bottom: 1.5px solid var(--ink);
+    padding: 0 0 0 0;
+  }
+
+  .header-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 48px 32px 40px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 40px;
+    align-items: end;
+  }
+
+  .name-block h1 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: var(--ink);
+  }
+
+  .name-block .zh {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--muted);
+    margin-top: 4px;
+    display: block;
+  }
+
+  .name-block .affil {
+    margin-top: 16px;
+    font-size: 0.875rem;
+    color: var(--muted);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+
+  .name-block .affil strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-end;
+    padding-bottom: 4px;
+  }
+
+  .contact-links a {
+    font-size: 0.8rem;
+    color: var(--accent2);
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    font-weight: 500;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+
+  .contact-links a:hover { border-color: var(--accent2); }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--ink);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  nav ul {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    list-style: none;
+    gap: 0;
+  }
+
+  nav ul li a {
+    display: block;
+    padding: 14px 20px;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+    border-bottom: 2px solid transparent;
+  }
+
+  nav ul li a:hover { color: #fff; border-color: var(--accent); }
+
+  /* ── MAIN ── */
+  main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 32px 80px;
+  }
+
+  section {
+    padding: 56px 0 0;
+  }
+
+  .section-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1.5px solid var(--rule);
+  }
+
+  /* ── BIO ── */
+  .bio-grid {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .bio-text p {
+    color: var(--ink);
+    font-size: 0.97rem;
+    line-height: 1.85;
+    margin-bottom: 12px;
+  }
+
+  .sidebar-card {
+    border: 1.5px solid var(--rule);
+    border-radius: 2px;
+    padding: 24px;
+    background: var(--card);
+  }
+
+  .sidebar-card h4 {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--faint);
+    margin-bottom: 14px;
+  }
+
+  .interest-tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    border: 1px solid var(--rule);
+    padding: 4px 10px;
+    border-radius: 2px;
+    font-size: 0.78rem;
+    color: var(--ink);
+    margin: 3px 3px 3px 0;
+  }
+
+  .stat-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .stat-row:last-child { border-bottom: none; }
+
+  .stat-num {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--accent);
+    min-width: 56px;
+  }
+
+  .stat-label {
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+
+  /* ── PUBLICATIONS ── */
+  .pub-entry {
+    padding: 22px 0;
+    border-bottom: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+
+  .pub-entry:last-child { border-bottom: none; }
+
+  .pub-num {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.1rem;
+    color: var(--rule);
+    font-weight: 700;
+    min-width: 28px;
+    padding-top: 2px;
+  }
+
+  .pub-title {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.97rem;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.45;
+    margin-bottom: 5px;
+  }
+
+  .pub-title em { font-style: italic; font-weight: 400; }
+
+  .pub-authors {
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin-bottom: 5px;
+  }
+
+  .pub-authors .me {
+    color: var(--ink);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .pub-venue {
+    font-size: 0.8rem;
+    font-style: italic;
+    color: var(--accent2);
+    font-weight: 500;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 2px;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+
+  .badge-submitted { background: #fff3cd; color: #856404; border: 1px solid #ffc107; }
+  .badge-published { background: #d4edda; color: #155724; border: 1px solid #28a745; }
+
+  /* ── AWARDS ── */
+  .award-group { margin-bottom: 28px; }
+
+  .award-group-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--faint);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .award-entry {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    padding: 7px 0;
+    border-bottom: 1px dotted var(--rule);
+  }
+
+  .award-entry:last-child { border-bottom: none; }
+
+  .award-medal {
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 700;
+    min-width: 56px;
+    padding: 2px 6px;
+    border-radius: 2px;
+    text-align: center;
+  }
+
+  .medal-nat { background: #c0392b; color: #fff; }
+  .medal-prov { background: #2c3e7a; color: #fff; }
+
+  .award-name {
+    font-size: 0.875rem;
+    color: var(--ink);
+    flex: 1;
+  }
+
+  .award-role {
+    font-size: 0.75rem;
+    color: var(--accent);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  /* ── EDUCATION ── */
+  .edu-entry {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 24px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: start;
+  }
+
+  .edu-entry:last-child { border-bottom: none; }
+
+  .edu-dates {
+    font-size: 0.8rem;
+    color: var(--faint);
+    font-weight: 400;
+    padding-top: 2px;
+  }
+
+  .edu-school {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 3px;
+  }
+
+  .edu-dept {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+
+  .edu-detail {
+    font-size: 0.8rem;
+    color: var(--ink);
+  }
+
+  .edu-detail span {
+    display: inline-block;
+    background: var(--tag-bg);
+    border: 1px solid var(--rule);
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin: 2px 4px 2px 0;
+    font-weight: 500;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1.5px solid var(--ink);
+    margin-top: 60px;
+  }
+
+  footer .foot-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 24px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.78rem;
+    color: var(--faint);
+  }
+
+  @media (max-width: 700px) {
+    .header-inner { grid-template-columns: 1fr; }
+    .contact-links { align-items: flex-start; }
+    .bio-grid { grid-template-columns: 1fr; }
+    .edu-entry { grid-template-columns: 1fr; gap: 4px; }
+    .name-block h1 { font-size: 2.2rem; }
+    main { padding: 0 18px 60px; }
+  }
+
+  /* fade-in on load */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .header-inner { animation: fadeUp 0.6s ease both; }
+  section { animation: fadeUp 0.7s ease both; }
+  section:nth-child(2) { animation-delay: 0.05s; }
+  section:nth-child(3) { animation-delay: 0.1s; }
+  section:nth-child(4) { animation-delay: 0.15s; }
+  section:nth-child(5) { animation-delay: 0.2s; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="name-block">
+      <h1>Xinyi Huang</h1>
+      <span class="zh">黄欣怡</span>
+      <p class="affil" style="margin-top:20px;">
+        <strong>Beijing University of Technology</strong><br>
+        School of Computer Science · Information Security (Experimental Class)<br>
+        Fan Gongxiu Honors College · Class of 2027
+      </p>
+    </div>
+    <div class="contact-links">
+      <a href="mailto:2904143859@qq.com">2904143859@qq.com</a>
+      <a href="#">(+86) 182-0397-0365</a>
+      <a href="#">Google Scholar →</a>
+      <a href="#">GitHub →</a>
+      <a href="#">CV (PDF) →</a>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#awards">Awards</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#service">Service</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-label">About</div>
+    <div class="bio-grid">
+      <div class="bio-text">
+        <p>
+          I am a sophomore at Beijing University of Technology (BJUT), majoring in Information Security
+          (Experimental Class) within the Fan Gongxiu Honors College. My research interests lie at the
+          intersection of <strong>multimodal large language models (MLLMs)</strong>, <strong>AI safety</strong>,
+          and <strong>efficient fine-tuning</strong>.
+        </p>
+        <p>
+          I am currently working on <strong>EviGuard</strong>, a multimodal safety unlearning framework that
+          introduces evidence-guided connector intervention for cross-modal harmful content suppression in
+          MLLMs, targeting ACM MM 2026. I have also published at ACM MM 2025 and have papers under review
+          at IJCAI ECAI 2026 and ACL ARR 2026.
+        </p>
+        <p>
+          Beyond research, I serve as study committee member of the Fan Gongxiu Honors College (Class of 2023),
+          have accumulated 100+ hours of volunteer service, and represented BJUT as a student delegate in
+          various national academic forums.
+        </p>
+      </div>
+      <div>
+        <div class="sidebar-card" style="margin-bottom:16px;">
+          <h4>Research Interests</h4>
+          <span class="interest-tag">Multimodal LLMs</span>
+          <span class="interest-tag">AI Safety</span>
+          <span class="interest-tag">Safety Unlearning</span>
+          <span class="interest-tag">Efficient Fine-tuning</span>
+          <span class="interest-tag">Vision-Language Models</span>
+          <span class="interest-tag">Multi-agent Systems</span>
+        </div>
+        <div class="sidebar-card">
+          <h4>Quick Stats</h4>
+          <div class="stat-row">
+            <div class="stat-num">3.96</div>
+            <div class="stat-label">GPA / 4.0 · Rank 3/66</div>
+          </div>
+          <div class="stat-row">
+            <div class="stat-num">3</div>
+            <div class="stat-label">CCF-A papers (1 published, 2 under review)</div>
+          </div>
+          <div class="stat-row">
+            <div class="stat-num">3</div>
+            <div class="stat-label">National-level competition awards</div>
+          </div>
+          <div class="stat-row">
+            <div class="stat-num">100h+</div>
+            <div class="stat-label">Volunteer service</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section id="publications">
+    <div class="section-label">Publications</div>
+
+    <div class="pub-entry">
+      <div class="pub-num">01</div>
+      <div>
+        <div class="pub-title">
+          EviGuard: Evidence-Guided Connector Intervention for Cross-Modal Safety Unlearning in Multimodal Models
+          <span class="badge badge-submitted">Under Review</span>
+        </div>
+        <div class="pub-authors">
+          <span class="me">Xinyi Huang</span>, et al.
+        </div>
+        <div class="pub-venue">ACM International Conference on Multimedia (ACM MM) 2026 · CCF-A</div>
+      </div>
+    </div>
+
+    <div class="pub-entry">
+      <div class="pub-num">02</div>
+      <div>
+        <div class="pub-title">
+          [LLM Paper]
+          <span class="badge badge-submitted">Under Review</span>
+        </div>
+        <div class="pub-authors">
+          <span class="me">Xinyi Huang</span> (First Author), et al.
+        </div>
+        <div class="pub-venue">IJCAI ECAI 2026 · CCF-A</div>
+      </div>
+    </div>
+
+    <div class="pub-entry">
+      <div class="pub-num">03</div>
+      <div>
+        <div class="pub-title">
+          The Eye of Sherlock Holmes: Uncovering User Private Attribute Profiling via Vision-Language Model Agentic Framework
+          <span class="badge badge-published">Published</span>
+        </div>
+        <div class="pub-authors">
+          [Authors], <span class="me">Xinyi Huang</span> (3rd Author), et al.
+        </div>
+        <div class="pub-venue">ACM International Conference on Multimedia (ACM MM) 2025 · CCF-A</div>
+      </div>
+    </div>
+
+    <div class="pub-entry">
+      <div class="pub-num">04</div>
+      <div>
+        <div class="pub-title">
+          [Multi-agent Paper]
+          <span class="badge badge-submitted">Under Review</span>
+        </div>
+        <div class="pub-authors">
+          [Authors], <span class="me">Xinyi Huang</span> (4th Author), et al.
+        </div>
+        <div class="pub-venue">ACL ARR 2026 · CCF-A</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- AWARDS -->
+  <section id="awards">
+    <div class="section-label">Selected Awards &amp; Competitions</div>
+
+    <div class="award-group">
+      <div class="award-group-label">National Level</div>
+
+      <div class="award-entry">
+        <span class="award-medal medal-nat">1st</span>
+        <span class="award-name">睿抗机器人开发者大赛 National Competition · 2025</span>
+        <span class="award-role">Lead PI</span>
+      </div>
+      <div class="award-entry">
+        <span class="award-medal medal-nat">1st</span>
+        <span class="award-name">全国大学生数字媒体科技作品及创意竞赛 · 2025</span>
+        <span class="award-role">Lead PI</span>
+      </div>
+      <div class="award-entry">
+        <span class="award-medal medal-nat" style="font-size:0.6rem;">Excel.</span>
+        <span class="award-name">中国机器人及人工智能大赛 National Award · 2025</span>
+        <span class="award-role"></span>
+      </div>
+    </div>
+
+    <div class="award-group">
+      <div class="award-group-label">Provincial / Ministerial Level</div>
+
+      <div class="award-entry">
+        <span class="award-medal medal-prov">1st</span>
+        <span class="award-name">全国大学生数学建模大赛 Beijing · 2025</span>
+        <span class="award-role">Lead PI</span>
+      </div>
+      <div class="award-entry">
+        <span class="award-medal medal-prov">1st</span>
+        <span class="award-name">挑战杯"青聚AI"人工智能+专项赛 Provincial · 2025</span>
+        <span class="award-role"></span>
+      </div>
+      <div class="award-entry">
+        <span class="award-medal medal-prov" style="font-size:0.6rem;">Silver</span>
+        <span class="award-name">中国国际大学生创新大赛 Beijing Division · 2025</span>
+        <span class="award-role"></span>
+      </div>
+      <div class="award-entry">
+        <span class="award-medal medal-prov">1st</span>
+        <span class="award-name">北京大学生创新创业大赛（京彩大创）· 2025</span>
+        <span class="award-role"></span>
+      </div>
+    </div>
+
+    <div class="award-group">
+      <div class="award-group-label">Scholarships &amp; Honors</div>
+      <div class="award-entry">
+        <span class="award-medal medal-nat" style="background:#8B7355;">Natl.</span>
+        <span class="award-name">国家励志奖学金 · National Encouragement Scholarship</span>
+        <span class="award-role"></span>
+      </div>
+      <div class="award-entry">
+        <span class="award-medal medal-prov" style="background:#555;">Univ.</span>
+        <span class="award-name">三好学生 / 学习优秀奖 / 创新创业奖 / 优秀学生干部</span>
+        <span class="award-role">BJUT</span>
+      </div>
+      <div class="award-entry">
+        <span class="award-medal medal-prov" style="background:#555;">Univ.</span>
+        <span class="award-name">万集领导力奖（二等）· Fan Gongxiu Honors College</span>
+        <span class="award-role">BJUT</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="section-label">Education</div>
+
+    <div class="edu-entry">
+      <div class="edu-dates">Sep 2023 — Present</div>
+      <div>
+        <div class="edu-school">Beijing University of Technology (BJUT)</div>
+        <div class="edu-dept">School of Computer Science · B.Eng. in Information Security (Experimental Class)<br>Fan Gongxiu Honors College</div>
+        <div class="edu-detail">
+          <span>GPA 3.96 / 4.0</span>
+          <span>WAvg 91.50</span>
+          <span>Rank 3 / 66</span>
+        </div>
+        <div style="margin-top:8px; font-size:0.8rem; color:var(--muted);">
+          Key courses: Computer Networks · Operating Systems · Cryptography · Data Structures &amp; Algorithms · Network Security · Discrete Mathematics
+        </div>
+      </div>
+    </div>
+
+    <div class="edu-entry">
+      <div class="edu-dates">Jul – Aug 2025</div>
+      <div>
+        <div class="edu-school">Peking University (PKU)</div>
+        <div class="edu-dept">School of Computer Science · Summer School</div>
+        <div style="margin-top:6px; font-size:0.8rem; color:var(--muted);">
+          Courses: Large Language Models — From Foundations to Frontiers · LLMs in Practice · Advanced Topics in Computer Science
+        </div>
+      </div>
+    </div>
+
+    <div class="edu-entry">
+      <div class="edu-dates">Visiting</div>
+      <div>
+        <div class="edu-school">Nankai University</div>
+        <div class="edu-dept">Xinya Program — Vision-Language LLMs: Model Acceleration &amp; Efficient Fine-Tuning</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE -->
+  <section id="service">
+    <div class="section-label">Service &amp; Activities</div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+      <div class="sidebar-card">
+        <h4>Leadership</h4>
+        <p style="font-size:0.83rem; color:var(--ink); line-height:1.8;">
+          Class President, 232501 (2023–2024)<br>
+          Study Committee, Fan Gongxiu Honors College (Class 2023–)<br>
+          Secretary, MoreFun Rubik's Cube Club (2024–)<br>
+          Student Community Assistant — organized 6 university-level events
+        </p>
+      </div>
+      <div class="sidebar-card">
+        <h4>International &amp; Volunteer</h4>
+        <p style="font-size:0.83rem; color:var(--ink); line-height:1.8;">
+          International Volunteer, Anan City, Tokushima, Japan<br>
+          Student Delegate, 4th National Symposium on Top-Tier Undergraduate Cultivation, Qingdao<br>
+          Student Representative, Undergraduate Education Assessment<br>
+          100+ hours volunteer service
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="foot-inner">
+    <span>© 2026 Xinyi Huang · Last updated April 2026</span>
+    <span>Beijing, China</span>
+  </div>
+</footer>
+
+</body>
+</html>
